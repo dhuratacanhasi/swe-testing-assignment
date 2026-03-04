@@ -48,24 +48,29 @@ class CalculatorGUI:
          ('7', 2, 0), ('8', 2, 1), ('9', 2, 2), ('*', 2, 3),
          ('4', 3, 0), ('5', 3, 1), ('6', 3, 2), ('-', 3, 3),
          ('1', 4, 0), ('2', 4, 1), ('3', 4, 2), ('+', 4, 3),
-         ('0', 5, 0), ('.', 5, 1), ('=', 5, 2, 2) 
+         ('0', 5, 0), ('.', 5, 1), ('=', 6, 2, 2) 
         ]
         
         for btn in buttons:
              text, row, col = btn[0], btn[1], btn[2]
              colspan = btn[3] if len(btn) > 3 else 1 
-             button = tk.Button(
-             self.window,
-             text=text,
-             font=('Arial', 18),
-             width=5 if colspan == 1 else 11, 
-             height=2,
-             bg='#4A90D9',      
-             fg='white',        
+             if text != "": 
+              button = tk.Button(
+              self.window,
+              text=text,
+              font=('Arial', 18,"bold"),
+              bg='#4A90D9',      
+              fg='white',  
+              bd=3,
+              relief="raised",      
              command=lambda t=text: self._on_button_click(t)
             )
-             button.grid(row=row, column=col, columnspan=colspan, padx=2, pady=2)  
+             button.grid(row=row, column=col, columnspan=colspan, padx=5, pady=5,sticky="nsew")  
     
+        for i in range(7):
+            self.window.grid_rowconfigure(i,weight=1)
+        for j in range (4):
+            self.window.grid_columnconfigure(j,weight=1)    
     def _on_button_click(self, char: str):
         """Handle button click events."""
         if char.isdigit():
