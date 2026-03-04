@@ -52,17 +52,19 @@ class CalculatorGUI:
         ]
         
         for btn in buttons:
-         text, row, col = btn[0], btn[1], btn[2]
-         colspan = btn[3] if len(btn) > 3 else 1 
-         button = tk.Button(
-         self.window,
-         text=text,
-         font=('Arial', 18),
-         width=5 if colspan == 1 else 11, 
-         height=2,
-         command=lambda t=text: self._on_button_click(t)
-         )
-        button.grid(row=row, column=col, columnspan=colspan, padx=2, pady=2)  
+             text, row, col = btn[0], btn[1], btn[2]
+             colspan = btn[3] if len(btn) > 3 else 1 
+             button = tk.Button(
+             self.window,
+             text=text,
+             font=('Arial', 18),
+             width=5 if colspan == 1 else 11, 
+             height=2,
+             bg='#4A90D9',      
+             fg='white',        
+             command=lambda t=text: self._on_button_click(t)
+            )
+             button.grid(row=row, column=col, columnspan=colspan, padx=2, pady=2)  
     
     def _on_button_click(self, char: str):
         """Handle button click events."""
