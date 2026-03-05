@@ -130,12 +130,11 @@ class CalculatorGUI:
                 self._clear()
     
     def _clear(self):
-        """Reset calculator state."""
-        self.current_input = ""
-        self.previous_value = None
-        self.current_operation = None
-        self.reset_next = False
-        self._update_display("0")
+     self.current_input = ""
+     self.previous_value = None
+     self.current_operation = None
+     self.reset_next = False
+     self._update_display("0") 
     
     def _handle_decimal(self):
         """Handle decimal point input."""

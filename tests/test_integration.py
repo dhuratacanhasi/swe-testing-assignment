@@ -12,10 +12,12 @@ def test_full_calculation():
  assert app.get_display_value()== '8'
 
 def test_clear_button():
- """Tst that clear resets display"""
+ """Test that clear resets display"""
  app = CalculatorGUI()
 
  app.simulate_button_click('9')
  app.simulate_button_click('C')
 
- assert app.get_display_value()== '0'
+ assert app.get_display_value() == "0"
+
+ app.window.destroy()
