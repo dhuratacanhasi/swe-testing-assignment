@@ -60,7 +60,7 @@ class CalculatorGUI:
               text=text,
               font=('Arial', 18,"bold"),
               bg='#4A90D9',      
-              fg='white',  
+              fg='white',                              
               bd=3,
               relief="raised",      
              command=lambda t=text: self._on_button_click(t)
